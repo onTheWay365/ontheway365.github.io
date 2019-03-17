@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="java,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="定义一种标签，用于解释Java代码。 注解在 Java SE 5.0开始引入 ，属于 Java中的一种类型，同 类class 和 接口interface 一样 。">
+<meta name="keywords" content="java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java注解">
+<meta property="og:url" content="http://yoursite.com/2019/03/16/java注解/index.html">
+<meta property="og:site_name" content="在路上的博客">
+<meta property="og:description" content="定义一种标签，用于解释Java代码。 注解在 Java SE 5.0开始引入 ，属于 Java中的一种类型，同 类class 和 接口interface 一样 。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-17T06:21:48.740Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="java注解">
+<meta name="twitter:description" content="定义一种标签，用于解释Java代码。 注解在 Java SE 5.0开始引入 ，属于 Java中的一种类型，同 类class 和 接口interface 一样 。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/16/java注解/">
+
+
+
+
+
+  <title>java注解 | 在路上的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">在路上的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/16/java注解/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ontheway365">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="在路上的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">java注解</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-16T15:30:29+08:00">
+                2019-03-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>一种标签，用于解释<code>Java</code>代码。</p>
+<p>注解在 <code>Java SE 5.0</code>开始引入 ，属于 <code>Java</code>中的一种类型，同 类<code>class</code> 和 接口<code>interface</code> 一样 。</p>
+<a id="more"></a>
+<p>注解（<code>Annotation</code>）面向 <strong>编译器 /  APT</strong> 使用 。</p>
+<p><code>APT（Annotation Processing Tool）</code> 用于处理带有注解的代码。注解不会自动生效，必须由开发者提供相应的代码来提取并处理 <code>Annotation</code> 信息。这些处理提取和处理 <code>Annotation</code> 的代码统称为 <code>APT</code> 。</p>
+<h3 id="语法定义"><a href="#语法定义" class="headerlink" title="语法定义"></a>语法定义</h3><p>注解的定义要符合以下语法规则：</p>
+<ul>
+<li>使用@interface定义 </li>
+<li>自定义注解不能继承其他的注解或者接口</li>
+<li>属性的类型是受限制的，合法的类型只包含以下的几类： <ul>
+<li>基本类型和String  </li>
+<li>Class,Annotation,Enumeration </li>
+<li>以上类型的数组形式</li>
+</ul>
+</li>
+<li>注解的属性声明实际上是方法声明，方法名即为注解的属性名。注解中的方法，不允许使用protect、private修饰符，也无需加上public等修饰符，保持默认即可 。方法不能有参数，不能抛异常，不能是泛型方法</li>
+<li>单值注解：只有一个属性，且方法名为value()时，则赋值时”value“可以省略</li>
+</ul>
+<p>所有的注解接口隐式地拓展自<code>java.lang.annotation.Annotation</code>，注解无法被继承。</p>
+<p>下面是一个合法的注解声明的例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public @interface BugReport &#123;</span><br><span class="line"></span><br><span class="line">    enum Status &#123;UNCONFIRMED, CONFIRMED, FIXED, NOTABUG&#125;</span><br><span class="line"></span><br><span class="line">    boolean showStopper() default false;</span><br><span class="line"></span><br><span class="line">    String assignedTo() default &quot;[none]&quot;;</span><br><span class="line"></span><br><span class="line">    Class&lt;?&gt; testCase() default Void.class;</span><br><span class="line"></span><br><span class="line">    Status status() default Status.UNCONFIRMED;</span><br><span class="line"></span><br><span class="line">    Reference ref() default @Reference(); // an annotation type</span><br><span class="line">    </span><br><span class="line">    String[] reported();</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="注解类型"><a href="#注解类型" class="headerlink" title="注解类型"></a>注解类型</h3><p>注解类型可分为：元注解、<code>java</code>内置注解、自定义注解。</p>
+<h4 id="元注解"><a href="#元注解" class="headerlink" title="元注解"></a>元注解</h4><p>元注解是一种基本注解，能应用到其他普通注解上，对其他普通注解进行解释说明。</p>
+<p>注意：普通注解设置@Target({ElementType.ANNOTATION_TYPE})，也可以应用到普通注解上。</p>
+<p>元注解有以下几种：</p>
+<h5 id="Target"><a href="#Target" class="headerlink" title="@Target"></a><code>@Target</code></h5><p>Target 是目标的意思，@Target 指定了注解运用的地方。 </p>
+<p>当一个注解被 @Target 注解时，这个注解就被限定了运用的场景。如果不明确指出，该注解可以放在任何地方 。</p>
+<p>类比到标签，原本标签是你想张贴到哪个地方就到哪个地方，但是因为 @Target 的存在，它张贴的地方就非常具体了，比如只能张贴到方法上、类上、方法参数上等等。</p>
+<p>@Target的取值在<code>java.lang.annotation.ElementType</code>中定义 ：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">public enum ElementType &#123;</span><br><span class="line"></span><br><span class="line">    /** Class, interface (including annotation type), or enum declaration */</span><br><span class="line">    TYPE,</span><br><span class="line"></span><br><span class="line">    /** Field declaration (includes enum constants) */</span><br><span class="line">    FIELD,</span><br><span class="line"></span><br><span class="line">    /** Method declaration */</span><br><span class="line">    METHOD,</span><br><span class="line"></span><br><span class="line">    /** Formal parameter declaration */</span><br><span class="line">    PARAMETER,</span><br><span class="line"></span><br><span class="line">    /** Constructor declaration */</span><br><span class="line">    CONSTRUCTOR,</span><br><span class="line"></span><br><span class="line">    /** Local variable declaration */</span><br><span class="line">    LOCAL_VARIABLE,</span><br><span class="line"></span><br><span class="line">    /** Annotation type declaration */</span><br><span class="line">    ANNOTATION_TYPE,</span><br><span class="line"></span><br><span class="line">    /** Package declaration */</span><br><span class="line">    PACKAGE,</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * Type parameter declaration</span><br><span class="line">     *</span><br><span class="line">     * @since 1.8</span><br><span class="line">     */</span><br><span class="line">    TYPE_PARAMETER,</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * Use of a type</span><br><span class="line">     *</span><br><span class="line">     * @since 1.8</span><br><span class="line">     */</span><br><span class="line">    TYPE_USE</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>ElementType.TYPE</code>:可以给一个类型进行注解，如：类、接口、注解、枚举。</p>
+<p><code>ElementType.FIELD</code>:可以给属性进行注解，包括枚举常量。</p>
+<p><code>ElementType.METHOD</code>:可以给方法进行注解。</p>
+<p><code>ElementType.PARAMETER</code>:  可以给一个方法内的参数进行注解。</p>
+<p><code>ElementType.CONSTRUCTOR</code>: 可以给构造方法进行注解。</p>
+<p><code>ElementType.LOCAL_VARIABLE</code>: 可以给局部变量进行注解 。</p>
+<p><code>ElementType.ANNOTATION_TYPE</code>: 可以给一个注解进行注解，是<code>ElementType.TYPE</code>的子集。例如：<code>@RequestMapping</code>上的<code>@Mapping</code>使用的就是该范围；<code>@SpringBootApplication</code>上的<code>@EnableAutoConfiguration</code>使用的则是<code>ElementType.TYPE</code>。</p>
+<p><code>ElementType.PACKAGE</code>: 可以给一个包进行注解。</p>
+<p><code>ElementType.TYPE_PARAMETER</code>: <code>jdk1.8</code>新增。</p>
+<p><code>ElementType.TYPE_USE</code>: <code>jdk1.8</code>新增 。</p>
+<p>从Java 8开始，对注解进行了增强（Extended Annotations Support） ，注解已经能应用于任何目标。这其中包括new操作符、类型转换、instanceof检查、泛型类型参数，以及implements和throws子句。 ElementType.TYPE_PARAMETER和ElementType.TYPE_USE就是为注解增强而设计的。</p>
+<p>ElementType.TYPE_PARAMETER表示该注解能写在类型变量的声明语句中 。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">@Target(ElementType.TYPE_PARAMETER)</span><br><span class="line">@Retention(RetentionPolicy.RUNTIME)</span><br><span class="line">public @interface TypeParameterAnnotation &#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 如下是该注解的使用例子</span><br><span class="line">public class TypeParameterClass&lt;@TypeParameterAnnotation T&gt; &#123;</span><br><span class="line">    public &lt;@TypeParameterAnnotation T&gt; T foo(T t) &#123;</span><br><span class="line">        return null;</span><br><span class="line">    &#125;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>ElementType.TYPE_USE是ElementType.TYPE_PARAMETER的超集，表示该注解能写在使用类型的任何语句中（例如声明语句、泛型和强制转换语句中的类型） 。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">public class TestTypeUse &#123;</span><br><span class="line"></span><br><span class="line">    @Target(ElementType.TYPE_USE)</span><br><span class="line">    @Retention(RetentionPolicy.RUNTIME)</span><br><span class="line">    public @interface TypeUseAnnotation &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static @TypeUseAnnotation class TypeUseClass&lt;@TypeUseAnnotation T&gt; extends @TypeUseAnnotation Object &#123;</span><br><span class="line">        public void foo(@TypeUseAnnotation T t) throws @TypeUseAnnotation Exception &#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 如下注解的使用都是合法的</span><br><span class="line">    @SuppressWarnings(&#123; &quot;rawtypes&quot;, &quot;unused&quot;, &quot;resource&quot; &#125;)</span><br><span class="line">    public static void main(String[] args) throws Exception &#123;</span><br><span class="line">        TypeUseClass&lt;@TypeUseAnnotation String&gt; typeUseClass = new @TypeUseAnnotation TypeUseClass&lt;&gt;();</span><br><span class="line">        typeUseClass.foo(&quot;&quot;);</span><br><span class="line">        List&lt;@TypeUseAnnotation Comparable&gt; list1 = new ArrayList&lt;&gt;();</span><br><span class="line">        List&lt;? extends Comparable&gt; list2 = new ArrayList&lt;@TypeUseAnnotation Comparable&gt;();</span><br><span class="line">        @TypeUseAnnotation String text = (@TypeUseAnnotation String)new Object();</span><br><span class="line">        java.util. @TypeUseAnnotation Scanner console = new java.util.@TypeUseAnnotation Scanner(System.in);</span><br><span class="line">        </span><br><span class="line">        //note:@TypeUseAnnotation 的位置应该在包名右边，类型左边，以下使用例子是错误的，除非给该注解的 @Target 参数里面加上 ElementType.LOCAL_VARIABLE。</span><br><span class="line">        //@TypeUseAnnotation java.lang.String text;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>类型注解被用来支持在Java的程序中做强类型检查。配合第三方插件工具Checker Framework，可以在编译的时候检测出runtime error，以提高代码质量。这就是类型注解的作用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import checkers.nullness.quals.*;</span><br><span class="line">public class TestDemo&#123;</span><br><span class="line">    void sample() &#123;</span><br><span class="line">        @NonNull Object obj = null;</span><br><span class="line">        obj.toString();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上代码可以编译通过，但是运行时会报 NullPointerException 异常 。</p>
+<p>为了能在编译期间就自动检查出这类异常，可以通过类型注解结合 Checker Framework 提前排查出来错误异常。</p>
+<h5 id="Retention"><a href="#Retention" class="headerlink" title="@Retention"></a>@Retention</h5><p>Retention是保留的意思。@Retention用于说明注解的生命周期。</p>
+<p>@Retention的取值在<code>java.lang.annotation.RetentionPolicy</code>中定义 ：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">public enum RetentionPolicy &#123;</span><br><span class="line">    /**</span><br><span class="line">     * Annotations are to be discarded by the compiler.</span><br><span class="line">     */</span><br><span class="line">    SOURCE,</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * Annotations are to be recorded in the class file by the compiler</span><br><span class="line">     * but need not be retained by the VM at run time.  This is the default</span><br><span class="line">     * behavior.</span><br><span class="line">     */</span><br><span class="line">    CLASS,</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * Annotations are to be recorded in the class file by the compiler and</span><br><span class="line">     * retained by the VM at run time, so they may be read reflectively.</span><br><span class="line">     *</span><br><span class="line">     * @see java.lang.reflect.AnnotatedElement</span><br><span class="line">     */</span><br><span class="line">    RUNTIME</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>RetentionPolicy.SOURCE：在源文件中保留，编译时将被丢弃。</p>
+<p>RetentionPolicy.CLASS：随源文件一起编译到class文件中，但不会被加载到 JVM。</p>
+<p>RetentionPolicy.RUNTIME：注解保留到程序运行时，会被加载进入到 JVM 中，可以通过反射获取到。</p>
+<h5 id="Documented"><a href="#Documented" class="headerlink" title="@Documented"></a>@Documented</h5><p>它的作用是能够将注解中的元素包含到 Javadoc 中去 。</p>
+<h5 id="Inherited"><a href="#Inherited" class="headerlink" title="@Inherited"></a>@Inherited</h5><p>Inherited是继承的意思，但是它并不是说注解本身可以继承，而是说如果一个超类被 @Inherited 注解过的注解进行注解的话，那么这个子类就继承了超类的注解（注意：子类重写父类方法，）。 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">@Retention(RetentionPolicy.RUNTIME)</span><br><span class="line">@Inherited</span><br><span class="line">public @interface InheritedAnnotation &#123;</span><br><span class="line">    String value() default &quot;&quot;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@InheritedAnnotation(&quot;person class&quot;)</span><br><span class="line">@Component</span><br><span class="line">public class Person &#123;</span><br><span class="line"></span><br><span class="line">    @InheritedAnnotation(&quot;age filed&quot;)</span><br><span class="line">    public int age;</span><br><span class="line"></span><br><span class="line">    @InheritedAnnotation(&quot;run method&quot;)</span><br><span class="line">    public void run()&#123;&#125;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class ChinesePerson extends Person &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="Repeatable"><a href="#Repeatable" class="headerlink" title="@Repeatable"></a>@Repeatable</h5><p>Repeatable 自然是可重复的意思。@Repeatable 是 Java 1.8 才加进来的，可增加注解的可读性。</p>
+<p>java8之前，实现重复注解的方式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">@Retention(RetentionPolicy.RUNTIME)</span><br><span class="line">public @interface OldRepeatableAnnotation &#123;</span><br><span class="line">    String value();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@Retention(RetentionPolicy.RUNTIME)</span><br><span class="line">public @interface OldRepeatableAnnotations &#123;</span><br><span class="line">    OldRepeatableAnnotation[] value();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@OldRepeatableAnnotations(&#123;</span><br><span class="line">        @OldRepeatableAnnotation(&quot;001&quot;),</span><br><span class="line">        @OldRepeatableAnnotation(&quot;002&quot;),</span><br><span class="line">&#125;)</span><br><span class="line">public class OldProduct &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class OldRepeatableAnnotationTest &#123;</span><br><span class="line">    @Test</span><br><span class="line">    public void test()&#123;</span><br><span class="line">        Class&lt;OldProduct&gt; clazz = OldProduct.class;</span><br><span class="line">        Assert.assertFalse(clazz.isAnnotationPresent(OldRepeatableAnnotation.class));</span><br><span class="line">        Assert.assertTrue(clazz.isAnnotationPresent(OldRepeatableAnnotations.class));</span><br><span class="line">        Assert.assertEquals(2, clazz.getAnnotation(OldRepeatableAnnotations.class).value().length);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用@Repeatable实现的方式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">@Retention(RetentionPolicy.RUNTIME)</span><br><span class="line">//这里声明重复注解的容器类型</span><br><span class="line">@Repeatable(RepeatableAnnotations.class)</span><br><span class="line">public @interface RepeatableAnnotation &#123;</span><br><span class="line">    String value();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@Retention(RetentionPolicy.RUNTIME)</span><br><span class="line">public @interface RepeatableAnnotations &#123;</span><br><span class="line">    RepeatableAnnotation[] value();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@RepeatableAnnotation(&quot;001&quot;)</span><br><span class="line">@RepeatableAnnotation(&quot;002&quot;)</span><br><span class="line">public class Product &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class RepeatableAnnotationTest &#123;</span><br><span class="line"></span><br><span class="line">    @Test</span><br><span class="line">    public void test() &#123;</span><br><span class="line">        //两种方式获取重复注解</span><br><span class="line">        //1、通过重复注解容器类型获取 getAnnotation</span><br><span class="line">        //2、通过重复注解类型获取 getAnnotationsByType</span><br><span class="line">        Class&lt;Product&gt; clazz = Product.class;</span><br><span class="line">        Assert.assertFalse(clazz.isAnnotationPresent(RepeatableAnnotation.class));</span><br><span class="line">        Assert.assertTrue(clazz.isAnnotationPresent(RepeatableAnnotations.class));</span><br><span class="line"></span><br><span class="line">        Assert.assertEquals(2, clazz.getAnnotation(RepeatableAnnotations.class).value().length);</span><br><span class="line">        Assert.assertEquals(2, clazz.getAnnotationsByType(RepeatableAnnotation.class).length);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>重复注解可以看做是一种新的语法糖，在编译器层面，其实与原来的实现无异。同时提供了一个新的方法getAnnotationsByType用于获取重复注解。</p>
+<h5 id="Native"><a href="#Native" class="headerlink" title="@Native"></a>@Native</h5><p>@Native 作用在域上，用来表示域中的常量可能来自于本地代码。</p>
+<h4 id="java内置注解"><a href="#java内置注解" class="headerlink" title="java内置注解"></a>java内置注解</h4><p>Java有多种内置注解，其中最常用的是 @Override、@Deprecated、@SuppressWarnings、@SafeVarargs、@FunctionalInterface。 </p>
+<h5 id="Override"><a href="#Override" class="headerlink" title="@Override"></a>@Override</h5><p>@Override 注解表示覆盖，应用在方法上。 在覆盖父类方法时加上 @Override 注解，这是一个良好的编程习惯，有助于减少错误的发生。 </p>
+<h5 id="Deprecated"><a href="#Deprecated" class="headerlink" title="@Deprecated"></a>@Deprecated</h5><p>@Deprecated 注解也应用在方法上，表示当前方法已经废弃。对弃用的方法加上 @Deprecated 注解，并且避免使用弃用的方法，也是编程的良好习惯。 </p>
+<h5 id="SuppressWarnings"><a href="#SuppressWarnings" class="headerlink" title="@SuppressWarnings"></a>@SuppressWarnings</h5><p>@SuppressWarnings注解的作用是告知编译器，忽略他们产生的特殊警告。</p>
+<h5 id="SafeVarargs"><a href="#SafeVarargs" class="headerlink" title="@SafeVarargs"></a>@SafeVarargs</h5><p>表示参数安全的注解，它的存在会阻止编译器产生 unchecked 这样的警告 。</p>
+<p>加上这个注解并不是真正的安全，参数安全还是需要开发者在代码实现中保证。</p>
+<h5 id="FunctionalInterface"><a href="#FunctionalInterface" class="headerlink" title="@FunctionalInterface"></a>@FunctionalInterface</h5><p>函数式接口，用于lambada。作用与@Override类似。</p>
+<h3 id="注解解析"><a href="#注解解析" class="headerlink" title="注解解析"></a>注解解析</h3><p>注解的解析需要使用Java反射机制，注意要将Retention设置为RetentionPolicy.RUNTIME，这样才能在程序运行中获取注解的相关信息。</p>
+<p>jdk中是通过java.lang.reflect.AnnotatedElement接口实现对注解解析的 。AnnotatedElement代表了jvm中一个正在运行的被注解元素，这个接口允许通过反射的方式读取注解。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">public interface AnnotatedElement &#123;</span><br><span class="line"></span><br><span class="line">    default boolean isAnnotationPresent(Class&lt;? extends Annotation&gt; annotationClass) &#123;</span><br><span class="line">        return getAnnotation(annotationClass) != null;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &lt;T extends Annotation&gt; T getAnnotation(Class&lt;T&gt; annotationClass);</span><br><span class="line"></span><br><span class="line">    Annotation[] getAnnotations();</span><br><span class="line"></span><br><span class="line">    default &lt;T extends Annotation&gt; T[] getAnnotationsByType(Class&lt;T&gt; annotationClass) &#123;</span><br><span class="line">         /*</span><br><span class="line">          * Definition of associated: directly or indirectly present OR</span><br><span class="line">          * neither directly nor indirectly present AND the element is</span><br><span class="line">          * a Class, the annotation type is inheritable, and the</span><br><span class="line">          * annotation type is associated with the superclass of the</span><br><span class="line">          * element.</span><br><span class="line">          */</span><br><span class="line">         T[] result = getDeclaredAnnotationsByType(annotationClass);</span><br><span class="line"></span><br><span class="line">         if (result.length == 0 &amp;&amp; // Neither directly nor indirectly present</span><br><span class="line">             this instanceof Class &amp;&amp; // the element is a class</span><br><span class="line">             AnnotationType.getInstance(annotationClass).isInherited()) &#123; // Inheritable</span><br><span class="line">             Class&lt;?&gt; superClass = ((Class&lt;?&gt;) this).getSuperclass();</span><br><span class="line">             if (superClass != null) &#123;</span><br><span class="line">                 // Determine if the annotation is associated with the</span><br><span class="line">                 // superclass</span><br><span class="line">                 result = superClass.getAnnotationsByType(annotationClass);</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;</span><br><span class="line"></span><br><span class="line">         return result;</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">    default &lt;T extends Annotation&gt; T getDeclaredAnnotation(Class&lt;T&gt; annotationClass) &#123;</span><br><span class="line">         Objects.requireNonNull(annotationClass);</span><br><span class="line">         // Loop over all directly-present annotations looking for a matching one</span><br><span class="line">         for (Annotation annotation : getDeclaredAnnotations()) &#123;</span><br><span class="line">             if (annotationClass.equals(annotation.annotationType())) &#123;</span><br><span class="line">                 // More robust to do a dynamic cast at runtime instead</span><br><span class="line">                 // of compile-time only.</span><br><span class="line">                 return annotationClass.cast(annotation);</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;</span><br><span class="line">         return null;</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">    default &lt;T extends Annotation&gt; T[] getDeclaredAnnotationsByType(Class&lt;T&gt; annotationClass) &#123;</span><br><span class="line">        Objects.requireNonNull(annotationClass);</span><br><span class="line">        return AnnotationSupport.</span><br><span class="line">            getDirectlyAndIndirectlyPresent(Arrays.stream(getDeclaredAnnotations()).</span><br><span class="line">                                            collect(Collectors.toMap(Annotation::annotationType,</span><br><span class="line">                                                                     Function.identity(),</span><br><span class="line">                                                                     ((first,second) -&gt; first),</span><br><span class="line">                                                                     LinkedHashMap::new)),</span><br><span class="line">                                            annotationClass);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Annotation[] getDeclaredAnnotations();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Class、Method、Field实现了AnnotatedElement接口。</p>
+<p>使用步骤如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;-- 步骤1：判断该类是否应用了某个注解 --&gt;</span><br><span class="line">// 手段：采用 Class.isAnnotationPresent() </span><br><span class="line">public boolean isAnnotationPresent(Class&lt;? extends Annotation&gt; annotationClass) &#123;&#125;</span><br><span class="line"></span><br><span class="line">&lt;-- 步骤2：获取 注解对象（Annotation）--&gt;</span><br><span class="line">// 手段1：采用getAnnotation()  ；返回指定类型的注解</span><br><span class="line">public &lt;A extends Annotation&gt; A getAnnotation(Class&lt;A&gt; annotationClass) &#123;&#125;</span><br><span class="line">// 手段2：采用getAnnotations() ；返回该元素上的所有注解</span><br><span class="line">public Annotation[] getAnnotations() &#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>举例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">@Retention(RetentionPolicy.RUNTIME)</span><br><span class="line">public @interface Info &#123;</span><br><span class="line">    int id() default 0;</span><br><span class="line">    String name();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@Retention(RetentionPolicy.RUNTIME)</span><br><span class="line">public @interface Info2 &#123;</span><br><span class="line">    int id() default 0;</span><br><span class="line">    String name();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@Info(id = 1, name = &quot;order class&quot;)</span><br><span class="line">public class Order &#123;</span><br><span class="line"></span><br><span class="line">    @Info(id = 2, name = &quot;amount field&quot;)</span><br><span class="line">    private int amount;</span><br><span class="line"></span><br><span class="line">    @Info(id = 3, name = &quot;create method:info&quot;)</span><br><span class="line">    @Info2(id = 4, name = &quot;create method:info2&quot;)</span><br><span class="line">    public void create()&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) throws Exception &#123;</span><br><span class="line"></span><br><span class="line">        Class&lt;Order&gt; clazz = Order.class;</span><br><span class="line">        //判断是否存在指定的注解</span><br><span class="line">        boolean hasInfoAnnotation = clazz.isAnnotationPresent(Info.class);</span><br><span class="line">        //如果存在注解，则获取类上的注解</span><br><span class="line">        if (hasInfoAnnotation) &#123;</span><br><span class="line">            Info annotation = clazz.getAnnotation(Info.class);</span><br><span class="line">            System.out.println(&quot;Order类上的注解&quot;);</span><br><span class="line">            System.out.println(annotation.id());</span><br><span class="line">            System.out.println(annotation.name());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        //获取成员变量上的注解</span><br><span class="line">        Field field = clazz.getDeclaredField(&quot;amount&quot;);</span><br><span class="line">        field.setAccessible(true);</span><br><span class="line">        boolean annotationPresent = field.isAnnotationPresent(Info.class);</span><br><span class="line">        if (annotationPresent) &#123;</span><br><span class="line">            Info annotation = field.getAnnotation(Info.class);</span><br><span class="line">            System.out.println(&quot;成员变量上的注解&quot;);</span><br><span class="line">            System.out.println(annotation.id());</span><br><span class="line">            System.out.println(annotation.name());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        //获取方法上的注解</span><br><span class="line">        Method method = clazz.getDeclaredMethod(&quot;create&quot;);</span><br><span class="line">        if (method == null) &#123;</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line">        // 因为方法上有2个注解，所以采用getAnnotations()获得所有类型的注解</span><br><span class="line">        Annotation[] annotations = method.getAnnotations();</span><br><span class="line">        System.out.println(&quot;方法上的注解&quot;);</span><br><span class="line">        for (Annotation annotation : annotations) &#123;</span><br><span class="line">            System.out.println(annotation.annotationType().getSimpleName());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://blog.csdn.net/briblue/article/details/73824058/" target="_blank" rel="noopener">秒懂，Java 注解你可以这样学</a></p>
+<p><a href="http://patchouli-know.com/2016/11/22/java-annotation/" target="_blank" rel="noopener">Java注解解析</a></p>
+<p><a href="https://www.jianshu.com/p/e9329c8a59c2" target="_blank" rel="noopener">Java元注解和注解的解析</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/24/java空格、空白符处理/" rel="next" title="java空格、空白符处理">
+                <i class="fa fa-chevron-left"></i> java空格、空白符处理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ontheway365</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义"><span class="nav-number">1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#语法定义"><span class="nav-number">2.</span> <span class="nav-text">语法定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注解类型"><span class="nav-number">3.</span> <span class="nav-text">注解类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#元注解"><span class="nav-number">3.1.</span> <span class="nav-text">元注解</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Target"><span class="nav-number">3.1.1.</span> <span class="nav-text">@Target</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Retention"><span class="nav-number">3.1.2.</span> <span class="nav-text">@Retention</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Documented"><span class="nav-number">3.1.3.</span> <span class="nav-text">@Documented</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Inherited"><span class="nav-number">3.1.4.</span> <span class="nav-text">@Inherited</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Repeatable"><span class="nav-number">3.1.5.</span> <span class="nav-text">@Repeatable</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Native"><span class="nav-number">3.1.6.</span> <span class="nav-text">@Native</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java内置注解"><span class="nav-number">3.2.</span> <span class="nav-text">java内置注解</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Override"><span class="nav-number">3.2.1.</span> <span class="nav-text">@Override</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Deprecated"><span class="nav-number">3.2.2.</span> <span class="nav-text">@Deprecated</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#SuppressWarnings"><span class="nav-number">3.2.3.</span> <span class="nav-text">@SuppressWarnings</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#SafeVarargs"><span class="nav-number">3.2.4.</span> <span class="nav-text">@SafeVarargs</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#FunctionalInterface"><span class="nav-number">3.2.5.</span> <span class="nav-text">@FunctionalInterface</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注解解析"><span class="nav-number">4.</span> <span class="nav-text">注解解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ontheway365</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
